@@ -34,7 +34,7 @@
         border-bottom-right-radius: 4px;
     }
     .angelyze-bot-message {
-        background: #7D967D;
+        background: #CDD1CF;
         color: #333;
         margin-right: auto;
         border-bottom-left-radius: 4px;
@@ -62,7 +62,7 @@
         height: 30px;
         border-radius: 50%;
         margin-right: 10px;
-        border: 2px solid white;
+        border: 1px solid white;
     }
     #angelyze-typing {
         font-size: 11px;
@@ -114,7 +114,7 @@
     #angelyze-chat-container {
         border-radius: 16px;
         overflow: hidden;
-        box-shadow: 0 5px 25px rgba(0,0,0,0.2);
+        box-shadow: 0 5px 25px rgba(0,0,0,0.5);
         transition: all 0.3s ease;
         opacity: 0;
         transform: translateY(20px);
@@ -152,7 +152,7 @@
         box-shadow: 0 0 0 2px rgba(22, 62, 18, 0.2);
     }
     #angelyze-input-container {
-        background: white;
+        background: #CDD1CF;
         padding: 12px 15px;
         border-top: 1px solid #eaeaea;
     }
@@ -857,7 +857,7 @@ Za slučaj da netko pita o Chatbotu, Angelyze je napravio ovaj ChatBot, te može
                     body: JSON.stringify({
                         contents: [{
                             parts: [{
-                                text: `Korisnik je pitao: "${userMessage}". Odgovori na Engleskom ili Hrvatskom jeziku, ovisno o korisnikovu unosu. Primarni gol ti je izgraditi povjerenje kod korisnika te pomoći sa što više informacija. Koristi smislene rečenice te se nadoveži pitanjem ako misliš da bi bilo u redu ili nadopuni sa kontakt informacijama. Formatiraj liste s " * " za bullet točke. Izbjegavaj nepotrebne simbole. Smjernice za razgovor:
+                                text: `Korisnik je pitao: "${userMessage}". Odgovori na Engleskom ili Hrvatskom jeziku, ovisno o unosu korisnika. Primarni gol ti je izgraditi povjerenje kod korisnika te pomoći sa što više informacija. Koristi smislene rečenice te se nadoveži pitanjem ako misliš da bi bilo u redu ili nadopuni sa kontakt informacijama. Formatiraj liste s " * " za bullet točke. Izbjegavaj nepotrebne simbole. Smjernice za razgovor:
 * Održavaj ležeran, svrhovit i koncizan ton.
 * Preslikajte jezik i način govora korisnika.
 * Budite pažljivi i temeljiti dok razgovarate s korisnikom.
