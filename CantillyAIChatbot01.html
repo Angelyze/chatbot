@@ -156,12 +156,21 @@
         padding: 12px 15px;
         border-top: 1px solid #eaeaea;
     }
+    .angelyze-bot-message a {
+        color: #163E12;
+        text-decoration: none;
+        font-weight: 500;
+        transition: color 0.2s;
+    }
+    .angelyze-bot-message a:hover {
+        color: #225822;
+    }
 </style>
 
 <div id="angelyze-chatbot-icon" style="position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 70px; height: 70px; cursor: pointer; z-index: 999999;">
     <img src="Cantilly.png" 
          alt="Cantilly AI Chatbot" 
-         style="width: 100%; height: 100%;" />
+         style="width: 100%; height: 100%; border-radius: 50%;" />
 </div>
 
 <div id="angelyze-chat-container" style="position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 360px; height: 550px; background: white; z-index: 999999; display: none;">
@@ -956,7 +965,7 @@ Pravila koja treba slijediti:
                 try {
                     // Attempt to validate and sanitize the URL
                     const validatedUrl = new URL(url).toString();
-                    return `<a href="${validatedUrl}" target="_blank" rel="noopener noreferrer" style="color: #f4a900; text-decoration: none; font-weight: 500;">${url}</a>`;
+                    return `<a href="${validatedUrl}" target="_blank" rel="noopener noreferrer">${url}</a>`;
                 } catch (e) {
                     // If URL parsing fails, just return the original text
                     return url;
@@ -965,11 +974,11 @@ Pravila koja treba slijediti:
             
             // Email handling
             const emailRegex = /\b([a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,})\b/g;
-            html = html.replace(emailRegex, '<a href="mailto:$1" style="color: #f4a900; text-decoration: none; font-weight: 500;">$1</a>');
+            html = html.replace(emailRegex, '<a href="mailto:$1">$1</a>');
             
             // Phone number formatting (Croatian format)
             const phoneRegex = /(\+385)\s?(\d{1,2})\s?(\d{3,4})\s?(\d{3,4})/g;
-            html = html.replace(phoneRegex, '<a href="tel:$1$2$3$4" style="color: #f4a900; text-decoration: none; font-weight: 500;">$1 $2 $3 $4</a>');
+            html = html.replace(phoneRegex, '<a href="tel:$1$2$3$4">$1 $2 $3 $4</a>');
 
             return html;
         }
