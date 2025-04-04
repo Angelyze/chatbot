@@ -27,7 +27,7 @@
         to { opacity: 1; transform: translateY(0); }
     }
     .angelyze-user-message {
-        background: linear-gradient(135deg, #f4a900, #f4b900);
+        background: linear-gradient(135deg, #163E12, #ffffff);
         color: white;
         margin-left: auto;
         text-align: right;
@@ -52,7 +52,7 @@
         display: flex;
         align-items: center;
         padding: 15px;
-        background: linear-gradient(135deg, #f4a900, #f4b900);
+        background: linear-gradient(135deg, #163E12, #ffffff);
         border-radius: 15px 15px 0 0;
         color: white;
         box-shadow: 0 2px 5px rgba(0,0,0,0.1);
@@ -100,7 +100,7 @@
         align-items: center;
         justify-content: center;
         margin-left: 10px;
-        background: linear-gradient(135deg, #f4a900, #f4b900);
+        background: linear-gradient(135deg, #163E12, #ffffff);
         color: white;
         border: none;
         cursor: pointer;
@@ -148,8 +148,8 @@
     }
     #angelyze-userInput:focus {
         background: #fff;
-        border-color: #f4a900;
-        box-shadow: 0 0 0 2px rgba(244, 169, 0, 0.2);
+        border-color: #163E12;
+        box-shadow: 0 0 0 2px rgba(22, 62, 18, 0.2);
     }
     #angelyze-input-container {
         background: white;
@@ -159,15 +159,15 @@
 </style>
 
 <div id="angelyze-chatbot-icon" style="position: fixed; bottom: 25px; left: 25px; width: 70px; height: 70px; cursor: pointer; z-index: 999999;">
-    <img src="AngelyzeAI.png" 
-         alt="Angelyze AI Chatbot" 
+    <img src="Cantilly.png" 
+         alt="Cantilly AI Chatbot" 
          style="width: 100%; height: 100%;" />
 </div>
 
 <div id="angelyze-chat-container" style="position: fixed; bottom: 25px; left: 25px; width: 360px; height: 550px; background: white; z-index: 999999; display: none;">
     <div style="position: relative; height: 100%; display: flex; flex-direction: column;">
         <div id="angelyze-chat-header">
-            <img id="angelyze-logo" src="AngelyzeAI.png" alt="Angelyze AI">
+            <img id="angelyze-logo" src="Cantilly.png" alt="Cantilly AI">
             <div>
                 <div style="font-weight: 600; font-size: 16px;">Cantilly AI Assistant</div>
                 <div style="font-size: 12px; opacity: 0.9;">Online | Odgovaramo odmah</div>
@@ -196,18 +196,440 @@
 // Angelyze Chatbot Widget
 (function() {
     const websiteData = `
-        O nama: Cantilly je obiteljsko utočište u srcu Samobora koje poziva na bijeg u mir prirode. Na vaš tanjur donosimo svježe plodove zemlje, priče o zahvalnosti i jednostavnosti prirodnih darova. Kontakti - Email: info@cantilly.com, Adresa: Ulica Stanka Vraza 1
-HR-10430 Samobor. Tel.: +385993035120. Web: https://cantilly.hr
-        Radno vrijeme:
-        od Utorka do Subote
-        od 09:00 do 22:00 h
+        O nama: Cantilly je obiteljsko utočište u srcu Samobora koje poziva na bijeg u mir prirode. Na vaš tanjur donosimo svježe plodove zemlje, priče o zahvalnosti i jednostavnosti prirodnih darova. Kontakti - Email: info@cantilly.com, Adresa: Ulica Stanka Vraza 1,HR-10430 Samobor. Tel.: +385993035120. Web: https://cantilly.hr. Društvene mreže: Facebook - https://www.facebook.com/cantillyrestoransamobor, Instagram - https://www.instagram.com/cantilly_restoran_samobor.
+        Radno vrijeme: od Utorka do Subote od 09:00 do 22:00 h, Nedjeljom od 09:00 do 17:00 h. Ponedjeljkom ne radimo.
+Više informacija o Cantillyu: U Cantillyju, naša krilatica Odgovorno ukusno prekrasno spaja dobru hranu, etičke poslovne prakse i jednostavnu profesionalnu uslugu, stvarajući idilično okruženje za blagovanje i zajedništvo u zabavnoj i opuštenoj atmosferi. Naš jelovnik sadrži sezonski svježe lokalne sastojke, majstorski uparene s pažljivo odabranim vrhunskim lokalnim i međunarodnim vinima. S naglaskom na zdravu prehranu, nudimo vegetarijanske i veganske opcije koje su slične glavnim jelima. Naši sastojci su zajamčeno svježi, dolaze iz naših vlastitih vrtova i obližnjih obiteljskih poljoprivrednih gospodarstava. Naša kulinarska vizija je kombinirati sezonsku, svježu i zdravu lokalnu hranu s međunarodnim kulinarskim znanjem.
+Naš vrt: U Cantillyju, naš vrt više je od zelenog bilja. Njegov je cilj promicanje održive poljoprivrede i odgovorne uporabe biljaka u različite svrhe – od uzgoja hrane do stvaranja prekrasnih krajolika i očuvanja ekosustava.
 
-        Nedjelja
-        od 09:00 do 17:00 h
+Naši glavni ciljevi su:
+—  Uzgoj svježeg povrća
+—  Dizajn i održavanje krajolika
+—  Očuvanje i bioraznolikost
+—  Istraživanje i inovacije
+—  Edukacija i suradnja
 
-Ponedjeljkom ne radimo.
+U srži, naš vrt je središnji dio Cantilly iskustva. Ono pruža osvježavajući bijeg od gradske vreve i nudi jedinstvenu kombinaciju prirode, opuštanja, gastronomije i vizualnog užitka. Našim gostima obećavamo ukusno gastronomsko iskustvo. Dođite u Cantilly i dopustite da vas zagrljaj prirode osvoji.
 
-        Za slučaj da netko pita o Chatbotu, Angelyze je napravio ovaj ChatBot, te može napraviti i korisniku njegovu verziju naprednog AI ChatBota za njihovu web stranicu već od 49 eura! Saznaj više na https://angelyze.org
+Restaurant: U Cantillyju, naša krilatica Odgovorno ukusno prekrasno spaja dobru hranu, etičke poslovne prakse i jednostavnu profesionalnu uslugu, stvarajući idilično okruženje za blagovanje i zajedništvo u zabavnoj i opuštenoj atmosferi.
+Hrana: U fokusu nam je stvaranje ukusne hrane koristeći najbolje lokalne i sezonske sastojke. Srž našeg veganskog/zdravog jelovnika čini blago iz našeg vlastitog vrta, pri čemu svježi proizvodi zauzimaju središnje mjesto. Za najsvježije okuse s ponosom surađujemo s lokalnim poljoprivrednicima i skupljačima, stvarajući kulinarsku simfoniju koja slavi esenciju prirodnog obilja.
+Za stolom: Provjerite što je danas procvjetalo u našem vrtu, što smo s ljubavlju ubrali i s pažnjom pripremili za vas. Svaki tanjur nosi priču o svježim okusima, mirisima prirode i trenutku kada su sastojci bili na svom vrhuncu. Prepustite se našem degustacijskom meniju, gdje se prirodna jednostavnost spaja s kreativnošću u svakom zalogaju. Uz to, birajte između pažljivo usklađene vinske pratnje ili osvježavajućih bezalkoholnih pića, prilagođenih kako bi upotpunili vaše iskustvo. Doživite harmoniju okusa koja dolazi ravno iz vrta na vaš stol!        
+Terasa: Zakoračite u naše predvorje, čarobnu poruku u boci, gdje ste okruženi staklenim zidovima u pravom živom vrtu. Ovdje se mirisne biljke i ukusni jestivi cvjetovi prepliću u naše očaravajuće kulinarske i enološke avanture.
+Priča o Pićima: Dobrodošli u naš šarmantni avanturistički svijet pića, gdje se lokalna vina, destilati i pažljivo odabrani biljni sastojci prepliću s najboljim vinima na tržištu. Naši pažljivo složeni kokteli zauzimaju središnju pozornicu, poboljšavajući vaše gastronomsko iskustvo svakim gutljajem. Uzdignimo čaše za nezaboravnu avanturu okusa i užitka. Živjeli!
+Interijer: Uđite u svijet neprolazne ljepote dok vas naš unutarnji raspored vodi kroz avanturu. Svaki kutak otkriva novo područje, pozivajući vas da se opustite i uživate u nezaboravnim trenucima u Restoranu Cantilly Garden.
+Sobe: Zakoračite u naš svijet vječne elegancije, gdje vas boutique sobe dočekuju čarobnom udobnošću i šarmom. Bilo da putujete poslovno ili iz zadovoljstva, naši sadržaji su prilagođeni za zahtjevne putnike. Oh, a taj pogled! Od pogleda na stari grad SAMOBOR do impresivnih šumovitih brežuljaka i uređenih zelenih vrtova, pogledi iz Cantillyja će vas potpuno zadiviti.
+ SOBA STANKO
+Veličina sobe 22 m²
+U VAŠOJ PRIVATNOJ KUPAONICI: Sušilo za kosu – Besplatne toaletne potrepštine – Papuče – Tuš – Ručnici
+—  Pogled na vrt
+—  Besplatan WiFi
+—  Pušenje je zabranjeno
+
+Soba JULIJANA
+Veličina sobe 26 m²
+U VAŠOJ PRIVATNOJ KUPAONICI: Sušilo za kosu – Besplatne toaletne potrepštine – Papuče – Tuš – Ručnici
+—  Pogled na grad
+—  Besplatan WiFi
+—  Pušenje je zabranjeno
+
+Naš Tim: Unutar našeg kreativnog prostora, naš tim, sastavljen od ljudi koji slično razmišljaju, svakodnevno u poslu daje sve od sebe. Bilo da ste student u potrazi za vrijednim radnim iskustvom ili iskusni profesionalac u potrazi za novim prilikama, Cantilly srdačno pozdravlja razgovore o vašoj budućnosti. Vjerujemo u njegovanje talenata i prihvaćanje inovacija na svakom koraku.
+ Damir - Maitre 'D, Mateo - Junior Sommelier, Ružica - Chef de Cuisine, Dora - Hostess, Marinela - Sous Chef, Božidar - Confectioner, and Suzana - Housekeeper.
+
+Meni: Meni Zima:
+HLADNA PREDJELA COLD APPETIZERS
+PAŠTETA OD GRGEČA
+
+Namaz podimljenog grgeča blago pikantnog okusa, topla pogačica
+
+A1, A2, A3, A5
+
+PERCH PATE
+
+Slightly spicy smoked perch spread, warm bread
+
+A1, A2, A3, A5
+
+10,00 €
+
+BEEF TARTARE
+
+Topla focaccia, hrskava salata,
+maslac aromatiziran koštanom srži i suhom rajčicom
+
+A2, A3
+
+BEEF TARTARE
+
+Warm focaccia, crispy salad, butter flavoured with bone marrow and dried tomatoes
+
+A2, A3
+
+20,00 €
+
+TELEĆI CARPACCIO
+
+Marinirani teleći file, cream Fraiche, ukiseljena ljutika, dehidrirano bučino ulje
+
+A4
+
+VEAL CARPACCIO
+
+Marinated veal fillet, cream Fraiche, pickled shallots, dehydrated pumpkin oil
+
+A4
+
+18,00 €
+
+VEGANSKI ZRCALNI MENI VEGAN MIRROR MENU
+CIKLA TARTAR
+
+Cikla tartar, jabuka, hren umak, pinjoli, bouquet mikro bilja
+
+A4
+
+BEETROOT TARTARE
+
+Beetroot tartare, apple, horseradish sauce, pine nuts, bouquet of micro herbs
+
+A4
+
+15,00 €
+
+VEGANSKI “FOIE GRAS”
+
+Indijski oraščić, shiitake gljive,
+miso pasta, kokos, Perun vinjak
+
+A2, A4
+
+VEGAN “FOIE GRAS”
+
+Cashew nut, shiitake mushrooms,
+miso pasta, coconut, Perun brandy
+
+A2, A4
+
+16,00 €
+
+TOPLA PREDJELA WARM APPETIZERS
+RIŽOTO
+
+Rižoto junećeg filea, carnaroli riža, domaći pesto rajčice
+
+A3, A4
+
+RISOTTO
+
+Risotto of beef fillet, carnaroli rice, homemade tomato pesto
+
+A3, A4
+
+18,50 €
+
+RAVIOLI
+
+Ravioli punjeni samoborskom češnjofkom,
+muštarda, krema batat, mikro klice
+
+A2
+
+RAVIOLI
+
+Ravioli stuffed with Samobor sausage, mustard, sweet potato cream, microgreens
+
+A2
+
+15,50 €
+
+S OKUSOM DIMA
+
+Domaći njoki, dimljena pastrva,
+rikula, cream Fraiche
+
+A2
+
+WITH A SMOKY FLAVOUR
+
+Homemade gnocchi, smoked trout,
+rocket, cream Fraiche
+
+A2
+
+18,50 €
+
+VEGANSKI ZRCALNI MENI VEGAN MIRROR MENU
+NJOKI
+
+Domaći njoki, pesto rikule, dragoljuba i pinjola
+
+A2, A4
+
+GNOCCHI
+
+Homemade gnocchi, rocket pesto, chervil and pine nuts
+
+A2, A4
+
+16,50 €
+
+VEGAN RAVIOLI
+
+Hrskavi ravioli punjeni zimskim povrćem, krem dimljeni tofu i batat, čips češnjak
+
+A2
+
+VEGAN RAVIOLI
+
+Crispy ravioli stuffed with winter vegetables, smoked tofu and sweet potato cream, garlic chips
+
+A2
+
+14,50 €
+
+ŠAFRAN RIŽOTO
+
+Butternut buča, carnaroli riža, slanutak, Istarski šafran, salikornija,beluga čips
+
+A4
+
+SAFFRON RISOTTO
+
+Butternut pumpkin, carnaroli rice, chickpeas, Istrian saffron, salsify, beluga chips
+
+A4
+
+18,50 €
+
+JUHA SOUP
+JUHA KOKA
+
+Krepka gusta pileća juha, povrće, gris noklice
+
+A1, A2
+
+CHICKEN SOUP
+
+Strong thick chicken soup, vegetables, semolina dumplings
+
+A1, A2
+
+10,00 €
+
+VEGANSKI ZRCALNI MENI VEGAN MIRROR MENU
+JUHA OD LUKA
+
+Gusta juha od luka, tostirani baguet, veganska krema aromatizirana začinskim biljem
+
+A2, A4
+
+ONION SOUP
+
+Thick onion soup, toasted baguette, vegan cream flavoured with herbs
+
+A2, A4
+
+10,00 €
+
+GLAVNO JELO MAIN COURSE
+RIBA
+
+Poširani file brancina, krema karamelizirani luk, tostirani lješnjaci, pak choi, koromač
+
+A2, A4
+
+FISH
+
+Poached sea bass fillet, caramelized onion cream, toasted hazelnuts, pak choi, fennel
+
+A2, A4
+
+29,00 €
+
+PATKA
+
+Confit batka i zabatka, millefoglie krumpir, cikla, zimsko povrće, demi-glace umak
+
+A2, A3
+
+DUCK
+
+Confit drumstick and rump, millefoglie potatoes, beetroot, winter vegetables, demi-glace sauce
+
+A2, A3
+
+25,50 €
+
+CANTILLY STEAK
+
+Biftek, foie gras, slanina crne Slavonske svinje, krem mrkva, millefoglie krumpir, zimski tartuf
+
+A3
+
+CANTILLY STEAK
+
+Steak, foie gras, black Slavonian pig bacon, carrot cream, millefoglie potatoes, winter truffle
+
+A3
+
+39,50 €
+
+LUNGIĆ
+
+Lungić punjen mariniranom suhom šljivom, njoki na maslacu, krem grašak, umak crno vino
+
+A2, A3
+
+PORK LOIN
+
+Pork loin stuffed with marinated dried plum, butter gnocchi, cream peas, red wine sauce
+
+A2, A3
+
+24,50 €
+
+VEGANSKI ZRCALNI MENI VEGAN MIRROR MENU
+SARMA
+
+Vege sarmice kelja punjene bulgurom, sjemenke suncokreta, heljda i povrće, krem krumpir
+
+A2, A4
+
+KALE ROLLS
+
+Vegan kale rolls stuffed with bulgur, sunflower seeds, buckwheat and vegetables, cream potatoes
+
+A2, A4
+
+22,00 €
+
+ŠUMA
+
+Hrskave loptice ječma punjene raguom gljiva, krema buča, zemlja crnih maslina, tartuf
+
+A2, A4
+
+FOREST
+
+Crispy barley balls stuffed with mushroom ragout, pumpkin cream, black olive soil, truffle
+
+A2, A4
+
+24,00 €
+
+VEGAN GRILL
+
+Marinirani grill kupus, krem slanutak, vegan demi-glace umak, bouquet zimske salate
+
+A2, A4
+
+VEGAN GRILL
+
+Marinated grilled cabbage, chickpea cream, vegan “demi-glace”, bouquet of winter salads
+
+A2, A4
+
+20,00 €
+
+PRILOZI GARNITURES
+BOUQUET SEZONSKIH LISNATIH SALATA
+
+BOUQUET OF SEASONAL LEAF SALADS
+
+6,00 €
+
+PRŽENI DOMAĆI KRUMPIR
+
+FRIED HOMEMADE POTATOES
+
+5,00 €
+
+AROMATIZIRANO SOTIRANO POVRĆE
+
+FLAVOURED SAUTÉED VEGETABLES
+
+6,00 €
+
+SELEKCIJA KRUHA
+
+BREAD SELECTION
+
+3,00 €
+
+DESERTI DESSERTS
+SAMOBORSKI NOKTURNO
+
+Prhko tijesto s narančom, badem ganache, orah krema, crveni ribiz
+
+A1, A2, A3, A4
+
+SAMOBOR NOCTURNO
+
+Shortcrust pastry with orange, almond ganache, walnut cream, red currant
+
+A1, A2, A3, A4
+
+12,00 €
+
+OBLAČIĆ
+
+Hrskavo lisnato tijesto, flan od vanilije, espuma od citrusa
+
+A1, A2, A3, A4
+
+CLOUD
+
+Homemade puff pastry, vanilla flan, citrus espuma
+
+A1, A2, A3, A4
+
+10,00 €
+
+VEGANSKI ZRCALNI MENU VEGAN MIRROR MENU
+PAVLOVA
+
+Meringa, confit naranča i mandarina,  espuma limete
+
+A1
+
+PAVLOVA
+
+Meringue, orange and tangerine confit, lime espuma
+
+A1
+
+9,00 €
+
+ČOKOLADA
+
+Sorbeto čokolade, čoko cremeux, čoko zemlja, biskvit
+
+A2, A4
+
+CHOCOLATE
+
+Chocolate sorbet, choco cremeux, choco terra, sponge cake
+
+A2, A4
+
+10,00 €
+
+ALERGENI / ALLERGENS
+
+A1
+Jaja / Eggs
+
+A2
+Gluten / Gluten
+
+A3
+Laktoza / Lactose
+
+A4
+Orašasti plodovi / Nuts
+
+A5
+Morska hrana / Sea Food
+
+Za slučaj da netko pita o Chatbotu, Angelyze je napravio ovaj ChatBot, te može napraviti i korisniku njegovu verziju naprednog AI ChatBota za njihovu web stranicu već od 49 eura! Saznaj više na https://angelyze.org
     `;
 
     // Once DOM is loaded, initialize the chat components
